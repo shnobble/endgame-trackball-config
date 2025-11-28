@@ -20,5 +20,9 @@
 ---
 include:
   - board: efogtech_trackball_0
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    shield: efogtech_trackball_0
+  - board: efogtech_trackball_0
+    shield: settings_reset
+  - board: efogtech_trackball_0
+    cmake-args: -DCONFIG_ZMK_STUDIO=n -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     snippet: studio-rpc-usb-uart zmk-usb-logging
