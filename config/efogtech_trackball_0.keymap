@@ -20,6 +20,9 @@
 #define SCROLL_MULTIPLIER 1
 #define SCROLL_DIVISOR 3
 
+#define TWIST_SCROLL_MULTIPLIER 1
+#define TWIST_SCROLL_DIVISOR 20
+
 #define SNIPE_MULTIPLIER 1
 #define SNIPE_DIVISOR 4
 
@@ -32,10 +35,10 @@
 			DECLARE_ENCODERS;
 			bindings = <
 				// buttons
-				&ltmkp LAYER_SNIPE ENTER  &ltmkp LAYER_SCROLL ESC
-				&mkp MCLK                 &kp DELETE
+				&none			  		  &none
+				&ltmkp LAYER_SNIPE MCLK   &mo LAYER_SCROLL
 				&mkp LCLK                 &mkp RCLK
-				&ltm LAYER_EXTRAS MB4     &ltm LAYER_DEVICE MB5
+				&mkp MCLK      			  &ltm LAYER_DEVICE MB5
 
 				// rotary encoders
 				&kp C_VOL_UP              &kp LC(TAB)
@@ -75,10 +78,10 @@
 			display-name = "Scroll";
 			DECLARE_ENCODERS;
 			bindings = <
-			    &trans              &trans
-			    &trans              &scrlsens P2SM_INC 1
-			    &rrl 1              &scrlsens P2SM_DEC 1
-			    &sens P2SM_DEC 1    &sens P2SM_INC 1
+			    &scrlsens P2SM_DEC 1 &scrlsens P2SM_INC 1
+			    &trans               &trans
+			    &rrl 1               &trans
+			    &sens P2SM_DEC 1     &sens P2SM_INC 1
 
 				&sens P2SM_DEC 1    &scrlsens P2SM_INC 1
 				&sens P2SM_INC 1    &scrlsens P2SM_DEC 1
@@ -115,6 +118,9 @@
 	};
 
 	trackball {
+		input-processors = <&zip_scroll_scaler TWIST_SCROLL_MULTIPLIER TWIST_SCROLL_DIVISOR>;
+
+		/* Back to original: trackball scroll only when on the Scroll layer */
 		scroll {
 			layers = <LAYER_SCROLL>;
 			input-processors = <&zip_xy_scaler SCROLL_MULTIPLIER SCROLL_DIVISOR>, <&zip_axis_clamper>,
