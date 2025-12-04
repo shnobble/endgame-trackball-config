@@ -35,7 +35,7 @@
 			DECLARE_ENCODERS;
 			bindings = <
 				// buttons
-				&none			  		  &kt P2SM_TWIST_TOGGLE
+				&none			  		  &none
 				&ltmkp LAYER_SNIPE MCLK   &mo LAYER_SCROLL
 				&mkp LCLK                 &mkp RCLK
 				&mkp MCLK      			  &ltm LAYER_DEVICE MB5
