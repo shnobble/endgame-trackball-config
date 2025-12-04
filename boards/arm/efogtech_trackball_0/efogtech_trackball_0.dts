@@ -162,7 +162,7 @@
 
 		scrlsens: p2sm_scroll_sensitivity {
 			feedback-duration = <65>;
-			step = <30>;
+			step = <20>;
 			min-step = <1>;
 			max-step = <8>;
 		};
@@ -196,8 +196,8 @@
 			feedback-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
 			feedback-extra-gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
 			step = <10>;
-			min-step = <2>;
-			max-step = <12>;
+			min-step = <1>;
+			max-step = <10>;
 			scroll;
 		};
 
